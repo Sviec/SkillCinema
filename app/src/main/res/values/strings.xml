@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">SkillCinema</string>
+
+    <!-- Onboarding strings -->
+    <string name="onboarding_skip">Пропустить</string>
+    <string name="onboarding_description_first">Узнавай\nо премьерах</string>
+    <string name="onboarding_description_second">Создавай\nколлекции</string>
+    <string name="onboarding_description_third">Делись\nс друзьями</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Search setting fragment -->
+    <string name="search_settings_title">Настройки поиска</string>
+    <string name="search_settings_label_show">Показывать</string>
+    <string name="search_settings_radio_all">Все</string>
+    <string name="search_settings_radio_films">Фильмы</string>
+    <string name="search_settings_radio_series">Сериалы</string>
+    <string name="search_settings_rating_text">от %d до %d</string>
+    <string name="search_settings_country_label">Страна</string>
+    <string name="search_settings_genre_label">Жанр</string>
+    <string name="search_settings_rating_label">Рейтинг</string>
+    <string name="search_settings_year_label">Год</string>
+    <string name="search_settings_radio_popular">Популярность</string>
+    <string name="search_settings_radio_rating">Рейтинг</string>
+    <string name="search_settings_radio_date">Дата</string>
+    <string name="search_settings_sorting_label">Сортировать</string>
+    <string name="search_filters_country_choose">Выберете страну</string>
+    <string name="search_filters_countries_default">Все страны</string>
+    <string name="search_filters_genres_default">Все жанры</string>
+
+</resources>

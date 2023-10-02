@@ -1,0 +1,28 @@
+onboarding
+1. Как сделать нормальные кружочки (medium)
+
+homepageFragment
+1. Пофиксить кнопку перехода на listPage, которая должна быть в конце списков с фильмами (hard)
+
+listPageFragment; staffListPageFragment; SimilarListPageFragment; collectionFragment
+1. добавить пагинацию (easy)
+2. добавить загрузку (easy)
+
+searchFiltersFragment
+1. сделать поисковик (medium)
+
+searchSettingsFragment
+1. сделать фикс rangeSlider, изменив его, применить настройки на поиске и вернувшись
+обратно на страницу настроек - приложение вылетает (hard)
+2. добавить функционал для кнопок Просмотрено и выбора лет (hard)
+
+profileFragment
+1. добавить datastore для фильмов, которые были интересны (hard)
+2. Почему то не работает свайп вниз (unknown problem)
+
+filmpageFragment
+1. изменить визуал добавления фильма в коллекцию (medium)
+
+все приложение
+1. добавить везде отображение возможных ошибок (hard)
+2. Системно убрать темную тему (easy)

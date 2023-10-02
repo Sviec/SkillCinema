@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.StaffpageFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginTop="21dp"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="26dp"
+        app:layout_constraintTop_toBottomOf="@id/appBar">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/staffImage"
+            android:layout_width="146dp"
+            android:layout_height="201dp"
+            android:layout_marginTop="23dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/staffName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Кристина Асмус"
+            android:textColor="@color/light_black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/staffImage"
+            app:layout_constraintTop_toTopOf="@id/staffImage" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/staffDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Актриса"
+            android:textColor="#FF838390"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/staffName"
+            app:layout_constraintTop_toBottomOf="@id/staffName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bestFilms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text="Лучшее"
+            android:textColor="@color/light_black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/staffImage" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bestFilmsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Все"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/watchAllBestFilmsBtn"
+            app:layout_constraintEnd_toStartOf="@id/watchAllBestFilmsBtn"
+            app:layout_constraintTop_toTopOf="@+id/watchAllBestFilmsBtn" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/watchAllBestFilmsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="26dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            app:layout_constraintBottom_toBottomOf="@id/bestFilms"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bestFilms" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/bestFilmsRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/bestFilms"
+            tools:listitem="@layout/model_film" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/filmography"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text="Фильмография"
+            android:textColor="@color/light_black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bestFilmsRV" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/filmsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="44 фильма"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/filmography"
+            app:layout_constraintTop_toBottomOf="@id/filmography" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="К списку"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/watch_all_filmography_btn"
+            app:layout_constraintEnd_toStartOf="@id/watch_all_filmography_btn"
+            app:layout_constraintTop_toTopOf="@+id/watch_all_filmography_btn" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/watch_all_filmography_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="26dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            app:layout_constraintBottom_toBottomOf="@id/filmography"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/filmography" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

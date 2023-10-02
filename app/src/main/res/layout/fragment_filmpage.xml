@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.FilmpageFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/posterImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/gradient_shape"
+            android:minHeight="400dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            app:layout_constraintStart_toStartOf="@id/posterImg"
+            app:layout_constraintTop_toTopOf="@id/posterImg" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/posterImg"
+            app:layout_constraintGuide_begin="211dp"
+            app:layout_constraintTop_toTopOf="@id/posterImg" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/filmInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="26dp"
+            android:text="sdfsddfsfdsfs"
+            android:textAlignment="center"
+            android:textColor="@color/light_grey"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/hideButton"
+            app:layout_constraintTop_toTopOf="@id/guideline"
+            tools:layout_editor_absoluteX="26dp" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/likeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:button="@drawable/like_checkbox"
+            app:layout_constraintBottom_toBottomOf="@+id/hideButton"
+            app:layout_constraintEnd_toStartOf="@+id/favouritesButton" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/favouritesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:button="@drawable/favourite_checkbox"
+            app:layout_constraintBottom_toBottomOf="@+id/hideButton"
+            app:layout_constraintEnd_toStartOf="@+id/hideButton" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/hideButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@android:color/transparent"
+            android:button="@drawable/is_viewed_checkbox"
+            app:layout_constraintBottom_toBottomOf="@id/posterImg"
+            app:layout_constraintEnd_toEndOf="@id/posterImg"
+            app:layout_constraintStart_toStartOf="@id/posterImg"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/shareButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/share_button"
+            android:layout_marginBottom="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/hideButton"
+            app:layout_constraintStart_toEndOf="@+id/hideButton" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/optionalMenuButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/optional_menu_button"
+            app:layout_constraintBottom_toBottomOf="@+id/shareButton"
+            app:layout_constraintStart_toEndOf="@+id/shareButton" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/shortDescriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="26dp"
+            android:layout_marginTop="40dp"
+            android:text="Чукотский парень влюбляется  в американскую вебкам-модель.
+            Приз Венеции, Кристина Асмус  в роли девушки мечты"
+            android:textColor="@color/light_black"
+            app:layout_constraintTop_toBottomOf="@id/posterImg" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fullDescriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="26dp"
+            android:layout_marginTop="26dp"
+            android:text="Все меняется в жизни юного чукотского охотника Лёшки  с появлением
+             в поселке интернета. Он влюбляется — впервые и сильно —  в молчаливую девушку..."
+            app:layout_constraintTop_toBottomOf="@id/shortDescriptionText" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/series"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/fullDescriptionText">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/seriesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="40dp"
+                android:text="Сезоны и серии"
+                android:textColor="@color/light_black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/watchAllBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Все"
+                android:background="@android:color/transparent"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/seriesTitle"
+                app:layout_constraintBottom_toBottomOf="@id/seriesTitle"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/seriesInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:text="1 сезон, 12 серий"
+                android:textColor="@color/light_grey"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@id/seriesTitle"
+                app:layout_constraintTop_toBottomOf="@id/seriesTitle" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actorsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="40dp"
+            android:text="В фильме снимались"
+            android:textColor="@color/light_black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/series" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actorsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/watchAllActorsBtn"
+            app:layout_constraintEnd_toStartOf="@id/watchAllActorsBtn"
+            app:layout_constraintTop_toTopOf="@+id/watchAllActorsBtn" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/watchAllActorsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="26dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            app:layout_constraintBottom_toBottomOf="@id/actorsTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/actorsTitle" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/actorsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/actorsTitle"
+            app:spanCount="4"
+            tools:listitem="@layout/model_staff" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/workersTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="40dp"
+            android:text="Над фильмом работали"
+            android:textColor="@color/light_black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actorsList" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/workersCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/watchAllWorkersBtn"
+            app:layout_constraintEnd_toStartOf="@id/watchAllWorkersBtn"
+            app:layout_constraintTop_toTopOf="@+id/watchAllWorkersBtn" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/watchAllWorkersBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="26dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            app:layout_constraintBottom_toBottomOf="@id/workersTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/workersTitle" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/workersList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/workersTitle"
+            app:spanCount="2"
+            tools:listitem="@layout/model_staff" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/galleryTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="40dp"
+            android:text="Галерея"
+            android:textColor="@color/light_black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/workersList" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/galleryCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/watchAllGalleryBtn"
+            app:layout_constraintEnd_toStartOf="@id/watchAllGalleryBtn"
+            app:layout_constraintTop_toTopOf="@+id/watchAllGalleryBtn" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/watchAllGalleryBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="26dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            app:layout_constraintBottom_toBottomOf="@id/galleryTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/galleryTitle" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            tools:listitem="@layout/model_image"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/galleryTitle" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/similarsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="40dp"
+            android:text="Похожие фильмы"
+            android:textColor="@color/light_black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gallery" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/similarsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/watchAllSimilarsBtn"
+            app:layout_constraintEnd_toStartOf="@id/watchAllSimilarsBtn"
+            app:layout_constraintTop_toTopOf="@+id/watchAllSimilarsBtn" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/watchAllSimilarsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="26dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            app:layout_constraintBottom_toBottomOf="@id/similarsTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/similarsTitle" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/similarsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/similarsTitle"
+            app:spanCount="1"
+            tools:listitem="@layout/model_film" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
