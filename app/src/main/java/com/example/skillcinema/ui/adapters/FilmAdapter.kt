@@ -12,7 +12,7 @@ import com.example.skillcinema.entity.Category
 import com.example.skillcinema.entity.Film
 
 class FilmAdapter(
-    private val maxListSize: Int? = null,
+    private val maxListSize: Int,
     private val category: Category? = null,
     private val onShowAllClick: ((Category) -> Unit)? = null,
     private val onItemClick: (Film) -> Unit
@@ -25,16 +25,11 @@ class FilmAdapter(
 
     override fun onBindViewHolder(holder: FilmViewHolder, position: Int) {
         val item = getItem(position)
-        if (maxListSize != null && position == maxListSize - 1) {
+
+        if (position < maxListSize - 1) {
             with(holder.binding) {
-                filmCard.visibility = View.GONE
-                showAll.visibility = View.VISIBLE
-                root.setOnClickListener {
-                    onShowAllClick?.invoke(category!!)
-                }
-            }
-        } else if ((maxListSize != null && position <= maxListSize - 1) || maxListSize == null){
-            with(holder.binding) {
+                filmCard.visibility = View.VISIBLE
+                showAll.visibility = View.GONE
                 Glide
                     .with(itemPosterImg.context)
                     .load(item.posterUrlPreview)
@@ -49,8 +44,17 @@ class FilmAdapter(
                     onItemClick(item)
                 }
             }
+        } else if (position == maxListSize - 1){
+            with(holder.binding) {
+                filmCard.visibility = View.GONE
+                showAll.visibility = View.VISIBLE
+                root.setOnClickListener {
+                    onShowAllClick?.invoke(category!!)
+                }
+            }
         }
     }
+
 }
 
 class FilmViewHolder(val binding: ModelFilmBinding) : RecyclerView.ViewHolder(binding.root)

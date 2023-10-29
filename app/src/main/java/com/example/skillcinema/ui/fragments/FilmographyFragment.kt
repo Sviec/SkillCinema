@@ -22,7 +22,7 @@ class FilmographyFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: CinemaViewModel by activityViewModels()
-    private val adapter = FilmAdapter { onItemClick(it) }
+    private val adapter = FilmAdapter(20) { onItemClick(it) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

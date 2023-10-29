@@ -54,7 +54,7 @@ class FilmpageFragment : Fragment() {
             }
         }
     }
-    private val filmAdapter: FilmAdapter = FilmAdapter { onFilmClick(it) }
+    private val filmAdapter: FilmAdapter = FilmAdapter(20) { onFilmClick(it) }
     private val actorsAdapter: StaffAdapter = StaffAdapter { onStaffClick(it) }
     private val workersAdapter: StaffAdapter = StaffAdapter { onStaffClick(it) }
     private val galleryAdapter: GalleryAdapter = GalleryAdapter { onImageClick(it) }

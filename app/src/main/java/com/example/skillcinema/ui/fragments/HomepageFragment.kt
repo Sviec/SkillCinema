@@ -27,7 +27,7 @@ class HomepageFragment : Fragment() {
 
     private val viewModel: CinemaViewModel by activityViewModels()
     private var adapter: CategoryAdapter =
-        CategoryAdapter({ onAllItemsClick(it) }, { onItemClick(it) })
+        CategoryAdapter({ onAllItemsClick(it) }, { onItemClick(it) }, 20)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

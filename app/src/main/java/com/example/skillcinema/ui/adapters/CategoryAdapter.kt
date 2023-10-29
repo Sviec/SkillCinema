@@ -12,7 +12,8 @@ import com.example.skillcinema.entity.Film
 
 class CategoryAdapter(
     private val onAllItemsClick: (Category) -> Unit,
-    private val onItemClick: (Film) -> Unit
+    private val onItemClick: (Film) -> Unit,
+    private val maxListSize: Int
 ) : ListAdapter<Category, CategoryViewHolder>(CategoryDiffUtil()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         return CategoryViewHolder(
@@ -22,7 +23,7 @@ class CategoryAdapter(
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val item = getItem(position)
-        val adapter = FilmAdapter(20, item, { onAllItemsClick(it) }) { onItemClick(it) }
+        val adapter = FilmAdapter(maxListSize, item, { onAllItemsClick(it) }) { onItemClick(it) }
         adapter.submitList(item.filmList)
         with(holder.binding) {
             filmsList.adapter = adapter
@@ -32,6 +33,7 @@ class CategoryAdapter(
             }
         }
     }
+
 }
 
 class CategoryViewHolder(val binding: ModelCategoryBinding) :

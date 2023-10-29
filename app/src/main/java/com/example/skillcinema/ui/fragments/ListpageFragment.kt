@@ -27,7 +27,7 @@ class ListpageFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: CinemaViewModel by activityViewModels()
-    private val adapter: FilmAdapter = FilmAdapter { onItemClick(it) }
+    private val adapter: FilmAdapter = FilmAdapter(20) { onItemClick(it) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +40,6 @@ class ListpageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        setAdapter()
         getFilmsList()
 
         binding.back.setOnClickListener {
@@ -59,51 +58,12 @@ class ListpageFragment : Fragment() {
         findNavController().navigate(act)
     }
 
-//    private fun setAdapter() {
-//        adapter.addLoadStateListener { state ->
-//            val currentState = state.refresh
-//            binding.filmsList.visibility =
-//                if (currentState != LoadState.Loading) View.VISIBLE else View.GONE
-//            binding.loadingProgress.visibility =
-//                if (currentState == LoadState.Loading) View.VISIBLE else View.GONE
-//            binding.searchProgressText.visibility =
-//                if (currentState != LoadState.Loading) View.VISIBLE else View.GONE
-//            binding.searchProgressImage.visibility =
-//                if (currentState == LoadState.Loading) View.VISIBLE else View.GONE
-//            when (currentState) {
-//                is LoadState.Loading -> {
-//                    binding.filmsList.visibility = View.GONE
-//                    binding.searchProgressGroup.visibility = View.VISIBLE
-//                    binding.searchProgressText.visibility = View.GONE
-//                    binding.searchProgressImage.visibility = View.VISIBLE
-//                }
-//                is LoadState.NotLoading -> {
-//                    binding.filmsList.visibility = View.VISIBLE
-//                    binding.loadingProgress.visibility = View.GONE
-//                    binding.searchProgressText.visibility = View.GONE
-//                    binding.searchProgressImage.visibility = View.GONE
-//
-//                }
-//                else -> {
-//                    binding.filmsList.visibility = View.GONE
-//                    binding.loadingProgress.visibility = View.GONE
-//                    binding.searchProgressText.visibility = View.VISIBLE
-//                    binding.searchProgressImage.visibility = View.VISIBLE
-//                }
-//            }
-//        }
-//        binding.filmsList.adapter = adapter
-//    }
+
 
     private fun getFilmsList() {
         viewModel.currentCategory.onEach {
             adapter.submitList(it.filmList)
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
-//        viewLifecycleOwner.lifecycleScope.launch {
-//            repeatOnLifecycle(Lifecycle.State.STARTED) {
-//                viewModel.currentCategory.collectLatest(adapter::submitData)
-//            }
-//        }
     }
 }

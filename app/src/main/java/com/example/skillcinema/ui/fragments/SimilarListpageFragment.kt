@@ -26,7 +26,7 @@ class SimilarListpageFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: CinemaViewModel by activityViewModels()
-    private val adapter: FilmAdapter = FilmAdapter { onItemClick(it) }
+    private val adapter: FilmAdapter = FilmAdapter(20) { onItemClick(it) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,11 +44,6 @@ class SimilarListpageFragment : Fragment() {
             adapter.submitList(it)
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
-//        viewLifecycleOwner.lifecycleScope.launch {
-//            repeatOnLifecycle(Lifecycle.State.STARTED) {
-//                viewModel.currentFilmSimilar.collectLatest(adapter::submitData)
-//            }
-//        }
         binding.back.setOnClickListener {
             findNavController().navigateUp()
         }
