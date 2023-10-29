@@ -46,7 +46,7 @@ class StaffListpageFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-        setAdapter()
+//        setAdapter()
         if (args.staffType == "ACTORS") {
             setActors()
         } else if (args.staffType == "WORKERS") {
@@ -66,65 +66,65 @@ class StaffListpageFragment : Fragment() {
         findNavController().navigate(act)
     }
 
-    private fun setAdapter() {
-        adapter.addLoadStateListener { state ->
-            val currentState = state.refresh
-            binding.staffList.visibility =
-                if (currentState != LoadState.Loading) View.VISIBLE else View.GONE
-            binding.loadingProgress.visibility =
-                if (currentState == LoadState.Loading) View.VISIBLE else View.GONE
-            binding.searchProgressText.visibility =
-                if (currentState != LoadState.Loading) View.VISIBLE else View.GONE
-            binding.searchProgressImage.visibility =
-                if (currentState == LoadState.Loading) View.VISIBLE else View.GONE
-            when (currentState) {
-                is LoadState.Loading -> {
-                    binding.staffList.visibility = View.GONE
-                    binding.searchProgressGroup.visibility = View.VISIBLE
-                    binding.searchProgressText.visibility = View.GONE
-                    binding.searchProgressImage.visibility = View.VISIBLE
-                }
-                is LoadState.NotLoading -> {
-                    binding.staffList.visibility = View.VISIBLE
-                    binding.loadingProgress.visibility = View.GONE
-                    binding.searchProgressText.visibility = View.GONE
-                    binding.searchProgressImage.visibility = View.GONE
-
-                }
-                else -> {
-                    binding.staffList.visibility = View.GONE
-                    binding.loadingProgress.visibility = View.GONE
-                    binding.searchProgressText.visibility = View.VISIBLE
-                    binding.searchProgressImage.visibility = View.VISIBLE
-                }
-            }
-        }
-        binding.staffList.adapter = adapter
-    }
+//    private fun setAdapter() {
+//        adapter.addLoadStateListener { state ->
+//            val currentState = state.refresh
+//            binding.staffList.visibility =
+//                if (currentState != LoadState.Loading) View.VISIBLE else View.GONE
+//            binding.loadingProgress.visibility =
+//                if (currentState == LoadState.Loading) View.VISIBLE else View.GONE
+//            binding.searchProgressText.visibility =
+//                if (currentState != LoadState.Loading) View.VISIBLE else View.GONE
+//            binding.searchProgressImage.visibility =
+//                if (currentState == LoadState.Loading) View.VISIBLE else View.GONE
+//            when (currentState) {
+//                is LoadState.Loading -> {
+//                    binding.staffList.visibility = View.GONE
+//                    binding.searchProgressGroup.visibility = View.VISIBLE
+//                    binding.searchProgressText.visibility = View.GONE
+//                    binding.searchProgressImage.visibility = View.VISIBLE
+//                }
+//                is LoadState.NotLoading -> {
+//                    binding.staffList.visibility = View.VISIBLE
+//                    binding.loadingProgress.visibility = View.GONE
+//                    binding.searchProgressText.visibility = View.GONE
+//                    binding.searchProgressImage.visibility = View.GONE
+//
+//                }
+//                else -> {
+//                    binding.staffList.visibility = View.GONE
+//                    binding.loadingProgress.visibility = View.GONE
+//                    binding.searchProgressText.visibility = View.VISIBLE
+//                    binding.searchProgressImage.visibility = View.VISIBLE
+//                }
+//            }
+//        }
+//        binding.staffList.adapter = adapter
+//    }
 
     private fun setActors() {
-//        binding.staffListpageTitle.text = "В фильме снимались"
-//        viewModel.currentFilmActors.onEach {
-//            adapter.submitList(it)
-//        }.launchIn(viewLifecycleOwner.lifecycleScope)
+        binding.staffListpageTitle.text = "В фильме снимались"
+        viewModel.currentFilmActors.onEach {
+            adapter.submitList(it)
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.currentFilmActors.collectLatest(adapter::submitData)
-            }
-        }
+//        viewLifecycleOwner.lifecycleScope.launch {
+//            repeatOnLifecycle(Lifecycle.State.STARTED) {
+//                viewModel.currentFilmActors.collectLatest(adapter::submitData)
+//            }
+//        }
     }
 
     private fun setWorkers() {
-//        binding.staffListpageTitle.text = "Над фильмом работали"
-//        viewModel.currentFilmWorkers.onEach {
-//            adapter.submitList(it)
-//        }.launchIn(viewLifecycleOwner.lifecycleScope)
+        binding.staffListpageTitle.text = "Над фильмом работали"
+        viewModel.currentFilmWorkers.onEach {
+            adapter.submitList(it)
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.currentFilmWorkers.collectLatest(adapter::submitData)
-            }
-        }
+//        viewLifecycleOwner.lifecycleScope.launch {
+//            repeatOnLifecycle(Lifecycle.State.STARTED) {
+//                viewModel.currentFilmWorkers.collectLatest(adapter::submitData)
+//            }
+//        }
     }
 }

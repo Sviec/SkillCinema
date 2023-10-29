@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.example.skillcinema.data.db.AppDatabase
 
 class App : Application() {
+
     lateinit var db: AppDatabase
         private set
 
@@ -15,7 +16,8 @@ class App : Application() {
                 this,
                 AppDatabase::class.java,
                 "db"
-            ).build()
+            ).fallbackToDestructiveMigration()
+            .build()
     }
 
 }

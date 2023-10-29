@@ -40,15 +40,15 @@ class SimilarListpageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.similarsList.adapter = adapter
-//        viewModel.currentFilmSimilar.onEach {
-//            adapter.submitList(it)
-//        }.launchIn(viewLifecycleOwner.lifecycleScope)
+        viewModel.currentFilmSimilar.onEach {
+            adapter.submitList(it)
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.currentFilmSimilar.collectLatest(adapter::submitData)
-            }
-        }
+//        viewLifecycleOwner.lifecycleScope.launch {
+//            repeatOnLifecycle(Lifecycle.State.STARTED) {
+//                viewModel.currentFilmSimilar.collectLatest(adapter::submitData)
+//            }
+//        }
         binding.back.setOnClickListener {
             findNavController().navigateUp()
         }
